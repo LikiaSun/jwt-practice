@@ -1,13 +1,14 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define("User", {
-    id: {
-      primaryKey: true,
-      type: DataTypes.INTEGER
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    username: DataTypes.STRING,
-    password: DataTypes.STRING,
-    verify: DataTypes.INTEGER
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   });
 
   User.associate = function(models) {
