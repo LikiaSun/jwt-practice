@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+  jwt_server:
+    container_name: jwt_server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - jwt-work
+    ports:
+      - "5476:5476"
+    env_file: ./.env
+    volumes:
+      - ./src:/app:rw
+
+networks:
+  jwt-work:
+    name: jwt-work
+    driver: bridge
